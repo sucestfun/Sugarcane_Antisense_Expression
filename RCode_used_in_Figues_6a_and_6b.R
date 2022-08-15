@@ -16,6 +16,7 @@ df_summary = data.frame()
 HC_SAS = vector(mode = "list", length = length(files))
 names(HC_SAS) = files
 
+# Warning! The loop may take a couple of minutes to wrap up
 for (i in files) {
   #Load expression data
   exp_data = read.delim(paste("./Sig_express_030621/", i, sep = ""))
@@ -316,7 +317,7 @@ p2 = ggplot(df4, aes(x=strand, y=exp, fill=strand)) +
 
 # Final plot --------------------------------------------------------------
 
-pdf(file = "Figure_X.pdf", width = 10, height = 7)
+pdf(file = "Figure_6.pdf", width = 10, height = 7)
 ggarrange(p1, p2,widths = c(2.8,1.5),
           labels = c("(a)", "(b)"))
 dev.off()
